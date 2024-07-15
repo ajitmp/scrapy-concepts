@@ -5,6 +5,6 @@
 
 import scrapy
 class QuoteItem(scrapy.Item):
-    title = scrapy.Field()
-    tags = scrapy.Field()
+    title = scrapy.Field()    
     author = scrapy.Field()
+    #tags = scrapy.Field()
