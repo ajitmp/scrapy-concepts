@@ -4,7 +4,8 @@
 # https://docs.scrapy.org/en/latest/topics/items.html
 
 import scrapy
-class QuoteItem(scrapy.Item):
-    title = scrapy.Field()    
-    author = scrapy.Field()
-    #tags = scrapy.Field()
+from scrapy.item import Item, Field
+class QuoteItem(Item):
+    title = Field()    
+    author = Field()
+    tags = scrapy.Field()

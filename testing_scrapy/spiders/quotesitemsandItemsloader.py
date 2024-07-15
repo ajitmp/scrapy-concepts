@@ -11,10 +11,11 @@ class QuotesitemsanditemsloaderSpider(scrapy.Spider):
     def parse(self, response):
         quotes = response.css("div.quote")         
         for quote in quotes:
-            quotes_item = QuoteItemLoader(item=QuoteItem,selector=quote)
+            quotes_item = QuoteItemLoader(item=QuoteItem(),selector=quote)
             quotes_item.add_css('title',"span.text::text")            
             quotes_item.add_css('author',"small.author::text")           
-            #quotes_item.add_css('tags',"div.tags a::text")           
+            #quotes_item.add_css('tags',"div.tags meta.keywords::attr('content')")  
+            quotes_item.add_css('tags',"div.tags a.tag::text")         
             yield quotes_item.load_item() 
 
         next_page = response.css('.next a::attr("href")').extract_first()

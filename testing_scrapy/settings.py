@@ -62,9 +62,13 @@ ROBOTSTXT_OBEY = False
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    "testing_scrapy.pipelines.TestingScrapyPipeline": 300,
-#}
+ITEM_PIPELINES = {
+    #'testing_scrapy.pipelines.FilterLifeQuotePipeline': 500,
+    'testing_scrapy.pipelines.FilterLoveTagQuotePipeline':100,
+    'testing_scrapy.pipelines.DuplicatesPipeline': 300,
+}
+
+FilterLifeQuotePipeline_ENABLED = False
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html

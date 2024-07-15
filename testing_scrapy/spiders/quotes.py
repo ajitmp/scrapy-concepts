@@ -14,7 +14,8 @@ class QuotesSpider(scrapy.Spider):
             #title = quote.xpath('span/text()').get()
             author = quote.css("small.author::text").get()
             #author = quote.xpath('span/small/text()').get() 
-            tags = quote.css("div.tags a::text").getall()            
+            #tags = quote.css("div.tags a::text").getall()
+            tags = quote.css("div.tags meta.keywords::attr('content')").get()        
             yield{
                 'title':title,
                 'author':author,
