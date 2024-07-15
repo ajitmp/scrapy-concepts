@@ -4,9 +4,7 @@
 # https://docs.scrapy.org/en/latest/topics/items.html
 
 import scrapy
-
-
-class TestingScrapyItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+class QuoteItem(scrapy.Item):
+    title = scrapy.Field()
+    tags = scrapy.Field()
+    author = scrapy.Field()
