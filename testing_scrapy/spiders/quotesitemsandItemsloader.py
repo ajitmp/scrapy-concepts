@@ -8,6 +8,16 @@ class QuotesitemsanditemsloaderSpider(scrapy.Spider):
     allowed_domains = ["quotes.toscrape.com"]
     start_urls = ["https://quotes.toscrape.com/"]
 
+    custom_settings = {
+        'ITEM_PIPELINES': {
+            'testing_scrapy.pipelines.FilterLoveTagQuotePipeline': 100,            
+        },
+        'FEEDS' : {
+    'data/%(name)s/%(name)s_%(time)s.json': {
+        'format': 'json',        
+        }}
+    }
+
     def parse(self, response):
         quotes = response.css("div.quote")         
         for quote in quotes:
