@@ -95,6 +95,7 @@ ROBOTSTXT_OBEY = False
 REQUEST_FINGERPRINTER_IMPLEMENTATION = "2.7"
 TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 FEED_EXPORT_ENCODING = "utf-8"
+<<<<<<< HEAD
 
 SPIDERMON_ENABLED = True
 SPIDERMON_SLACK_SENDER_TOKEN = ''
@@ -120,3 +121,5 @@ SPIDERMON_VALIDATION_SCHEMAS = (
 )
 
 #SPIDERMON_VALIDATION_ADD_ERRORS_TO_ITEMS = True
+=======
+>>>>>>> parent of 1f501c0 (added monitoring using spidermon, however, the slack notification not working)
