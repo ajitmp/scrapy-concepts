@@ -95,3 +95,28 @@ ROBOTSTXT_OBEY = False
 REQUEST_FINGERPRINTER_IMPLEMENTATION = "2.7"
 TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 FEED_EXPORT_ENCODING = "utf-8"
+
+SPIDERMON_ENABLED = True
+SPIDERMON_SLACK_SENDER_TOKEN = ''
+SPIDERMON_SLACK_SENDER_NAME = 'Scrapy-spidermon-monitoring'
+SPIDERMON_SLACK_RECIPIENTS = ['@Ajit', '#scraper-spidermon','@Scrapy-spidermon-monitoring']
+
+EXTENSIONS = {
+    'spidermon.contrib.scrapy.extensions.Spidermon': 500,
+}
+#This suite needs to be executed when the spider closes,
+# so we include it in the SPIDERMON_SPIDER_CLOSE_MONITORS list in your settings.py file:
+SPIDERMON_SPIDER_CLOSE_MONITORS = (
+    'testing_scrapy.monitors.SpiderCloseMonitorSuite',
+)
+
+# tutorial/settings.py
+ITEM_PIPELINES = {
+    'spidermon.contrib.scrapy.pipelines.ItemValidationPipeline': 800,
+}
+
+SPIDERMON_VALIDATION_SCHEMAS = (
+    'testing_scrapy/schemas/quote_item.json',
+)
+
+#SPIDERMON_VALIDATION_ADD_ERRORS_TO_ITEMS = True
